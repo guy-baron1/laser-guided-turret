@@ -30,10 +30,11 @@ while 1:
     contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # draw outermost contour
-    outer_contour = getOutermostContour(contours)
-    x,y,w,h = cv2.boundingRect(outer_contour)
-    cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
- 
+    if len(contours) > 0:
+        outer_contour = getOutermostContour(contours)
+        x,y,w,h = cv2.boundingRect(outer_contour)
+        cv2.rectangle(img, (x,y), (x+w, y+h), (0,0,255), 2)
+    
     cv2.imshow('mask',mask)
     cv2.imshow('raw', img)
  

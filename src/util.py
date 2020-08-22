@@ -7,5 +7,4 @@ def getOutermostContour(contours):
     for cnt in contours:
         if cv2.contourArea(cnt) > cv2.contourArea(outermost_contour):
             outermost_contour = cnt
-    print (outermost_contour)
     return outermost_contour
